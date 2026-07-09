@@ -1,74 +1,62 @@
-# CullApp — Project Context
+# CLAUDE.md — CullApp
 
-## What it is
-CullApp is a macOS app that uninstalls applications cleanly by finding and trashing all associated files (app bundle + support directories, caches, preferences, logs, etc.).
+## Proyecto
+**CullApp** — desinstalador estilo AppCleaner para macOS, compatible Mac App Store.
 
-## Option B Scope (Implemented)
+## Nombre y Bundle ID
+- **App:** CullApp
+- **Helper:** CullAppHelper
+- **Bundle ID app:** com.cullapp.CullApp
+- **Bundle ID helper:** com.cullapp.CullApp.PrivilegedHelper
+- **XPC service:** com.cullapp.CullAppHelper
 
-Full-featured uninstaller with privileged helper for root-level file operations.
+## Objetivo
+- Publicar en la **Mac App Store**
+- Drag & drop .app sobre ventana → detecta y elimina residuos
+- Privileged helper via **SMJobBless** para archivos root (/Library)
+- Smart detection por bundle identifier
 
-### Features
-- **Drag & Drop Zone** — drop `.app` bundles onto the window to queue them for analysis
-- **File Scanner** — traverses the filesystem to find all files belonging to a dropped app (app bundle, `~/Library/`, `/Library/`, `/Applications/` subdirectories)
-- **Trash Operation** — moves all found files to Trash; uses a privileged helper (SMJobBless) for files owned by root
-- **Progress UI** — shows scan progress and per-file deletion status
+## Restricciones App Store
+- ❌ Finder Sync Extension → Apple lo rechaza
+- ❌ NSAppleScript admin → prohibido
+- ✅ SMJobBless helper → sí permitido
+- ✅ Drag & drop sobre ventana
+- ✅ NSWorkspace.shared.moveToTrash() para .app
+- ✅ Acceso ~/Library/* (sandbox) para leftovers
 
-### Architecture
+## Stack
+- SwiftUI + MVVM con @Observable
+- Xcode 26 / macOS 14+
+- OpenCode como agente en Mac mini
+- xcodegen para generar .xcodeproj
+
+## Ubicación
+- Mac mini: `/Users/clot/Projects/CullApp/`
+- SSH: `ssh -i ~/.ssh/id_rsa_remote clot@192.168.1.201`
+- GitHub: https://github.com/polidisio/CullApp
+
+## Arquitectura
 
 ```
-MainApp (CullApp.app)
-  ├── AppDelegate / DropZoneView (SwiftUI)
-  ├── FileScanner  (uses AuthorizationServices for user files)
-  └── XPC Client  ←——→ PrivilegedHelper (root)
-                        ├── SMJobBless (installs into /Library/PrivilegedHelperTools/)
-                        ├── XPC Service (com.cullapp.CullApp.PrivilegedHelper)
-                        └── File mover: moves root-owned files to Trash
+CullApp.app (sandbox)
+  ├── SwiftUI drop zone
+  ├── FileScanner → detecta residuos por bundle ID
+  └── XPC Client → com.cullapp.CullAppHelper
+                        └── PrivilegedHelper (root)
+                            └── borra archivos root → Trash
 ```
 
-### Components
+## Métricas v1
+- [ ] App compila y arranca ✅
+- [ ] Drop .app → muestra archivos a eliminar
+- [ ] Confirmación antes de eliminar
+- [ ] Archivos van a Trash
+- [ ] Privileged helper instala via SMJobBless
+- [ ] Archivos root → helper
+- [ ] Submit App Store
 
-| Component | Language | Target | Notes |
-|-----------|----------|--------|-------|
-| `CullApp` (main app) | Swift | `com.cullapp.CullApp` | Code signed, sandboxed |
-| `PrivilegedHelper` | Swift | `com.cullapp.CullApp.PrivilegedHelper` | SMJobBless, non-sandboxed |
-
-### Security Model
-- Main app requests authorization via `AuthorizationServices` for user-space files
-- Root-owned files handled by `PrivilegedHelper` via XPC
-- Helper installed via `SMJobBless` — requires `launchd.plist` + `Info.plist` + code signature in helper bundle
-- Helper verifies calling app's code signature before acting
-- All XPC communications use `NSXPCConnection` with `MachServiceName`
-
-### SMJobBless Installation Flow
-1. App calls `SMJobBless("kSMBlessPrivilegedHelper", ...)` on first run requiring root access
-2. macOS verifies helper's `launchd.plist` embedded in the helper bundle matches the one in the app's Resources
-3. Helper is installed to `/Library/PrivilegedHelperTools/com.cullapp.CullApp.PrivilegedHelper`
-4. Helper runs as a LaunchDaemon under `root:wheel`
-
-### XPC Protocol
-```swift
-@objc protocol PrivilegedHelperProtocol {
-    func trashFiles(_ paths: [String], withReply reply: @escaping (Bool, String?) -> Void)
-    func getVersion(withReply reply: @escaping (String) -> Void)
-}
-```
-
-## macOS-specific Considerations
-- **App Sandbox**: Enabled for main app; helper is NOT sandboxed
-- **Hardened Runtime**: Enabled for both targets
-- **Entitlements**: `com.apple.security.temporary-exception.mach-lookup.global-name` for XPC
-- **Code Signing**: Both targets must be signed; helper's signature is verified at install time
-- **Code Signature Hardened Runtime**: Both require `com.apple.developer.security.application-groups`
-
-## Key Files
-- `project.yml` — XcodeGen configuration
-- `Sources/App/` — main application source
-- `Sources/PrivilegedHelper/` — privileged helper source
-- `Sources/Shared/` — XPC protocol definitions
-- `Resources/` — app Info.plist, entitlements, helper plist
-
-## Build & Run
-```bash
-xcodegen generate
-xcodebuild -project CullApp.xcodeproj -scheme CullApp -configuration Debug build
-```
+## Flujo de trabajo
+1. OpenCode spike → arquitectura SMJobBless ✅
+2. Spec y proyecto base ✅
+3. Código v1 → en desarrollo
+4. Review con Jose antes de cada commit
