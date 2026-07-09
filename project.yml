@@ -1,0 +1,90 @@
+name: CullApp
+options:
+  bundleIdPrefix: com.cullapp
+  deploymentTarget:
+    macOS: "12.0"
+  xcodeVersion: "15.0"
+  generateEmptyDirectories: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MACOSX_DEPLOYMENT_TARGET: "12.0"
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_HARDENED_RUNTIME: YES
+
+targets:
+  CullApp:
+    type: application
+    platform: macOS
+    sources:
+      - path: Sources/App
+      - path: Sources/Shared
+    resources:
+      - path: Resources/CullApp-Info.plist
+        buildPhase: none
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.cullapp.CullApp
+        PRODUCT_NAME: CullApp
+        INFOPLIST_FILE: Resources/CullApp-Info.plist
+        CODE_SIGN_ENTITLEMENTS: Resources/CullApp.entitlements
+        ENABLE_APP_SANDBOX: YES
+        COMBINE_HIDPI_IMAGES: YES
+        LD_RUNPATH_SEARCH_PATHS: "@executable_path/../Frameworks"
+    dependencies:
+      - target: PrivilegedHelper
+        embed: false
+        copy:
+          destination: resources
+          subpath: ""
+    postBuildScripts:
+      - name: Copy PrivilegedHelper into App Bundle
+        script: |
+          HELPER_BINARY="${BUILT_PRODUCTS_DIR}/com.cullapp.CullApp.PrivilegedHelper"
+          DESTINATION="${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Library/LaunchServices"
+          mkdir -p "${DESTINATION}"
+          if [ -f "${HELPER_BINARY}" ]; then
+            cp -f "${HELPER_BINARY}" "${DESTINATION}/"
+          fi
+        basedOnDependencyAnalysis: false
+
+  PrivilegedHelper:
+    type: tool
+    platform: macOS
+    sources:
+      - path: Sources/PrivilegedHelper
+      - path: Sources/Shared
+    resources:
+      - path: Resources/launchd.plist
+        buildPhase: none
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.cullapp.CullApp.PrivilegedHelper
+        PRODUCT_NAME: com.cullapp.CullApp.PrivilegedHelper
+        INFOPLIST_FILE: Sources/PrivilegedHelper/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Sources/PrivilegedHelper/PrivilegedHelper.entitlements
+        ENABLE_APP_SANDBOX: NO
+        ENABLE_HARDENED_RUNTIME: YES
+        SKIP_INSTALL: YES
+        INSTALL_PATH: /Library/PrivilegedHelperTools
+        LD_RUNPATH_SEARCH_PATHS: "@loader_path/../Frameworks"
+
+schemes:
+  CullApp:
+    build:
+      targets:
+        CullApp: all
+        PrivilegedHelper: all
+    run:
+      config: Debug
+      commandLineArguments:
+        "-AppleEvent": ""
+    test:
+      config: Debug
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release

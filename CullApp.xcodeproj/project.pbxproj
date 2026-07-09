@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		051F72E1C53A9467E4EBB0BA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48D4164DBD123FC5F85F4C /* main.swift */; };
+		0F710FD55F0F8441A09C0D73 /* XPCProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B032C7FF5B7A62EA6131DC8 /* XPCProtocol.swift */; };
+		3D64746581C63936CD4B762D /* XPCProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B032C7FF5B7A62EA6131DC8 /* XPCProtocol.swift */; };
+		637AF3C896F2C094CE303ECB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C3E9FEA124AFBC959DDAF4 /* main.swift */; };
+		92940F47CD690A18942299B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AA061F76EA84D357C93DCF /* ContentView.swift */; };
+		AE2A4085EBD298B5B4CF67CF /* HelperDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C3CB593CD5510CB08EB342 /* HelperDelegate.swift */; };
+		BD1E8B5EB889912DB0E70CD8 /* CullAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673DED15C5D4409E20CFDD5D /* CullAppApp.swift */; };
+		D6DBAE7A767655B6A007ACDD /* PrivilegedHelperClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ECB386020F39FAF9BC293B /* PrivilegedHelperClient.swift */; };
+		DE3BCB5FF4DF1D8CFAC2F81F /* FileScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD0D140AFBDA287E65F7A0 /* FileScanner.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5AD35DA5AE712957B83D7922 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70F9743574C6FDA8A205ADB0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9458518FE2710BD12A53ED0E;
+			remoteInfo = PrivilegedHelper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01FD0D140AFBDA287E65F7A0 /* FileScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileScanner.swift; sourceTree = "<group>"; };
+		079CD8D468AB96993F57F417 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		09AA061F76EA84D357C93DCF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		39C3E9FEA124AFBC959DDAF4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		418438671750F06AB6C710D1 /* PrivilegedHelper */ = {isa = PBXFileReference; includeInIndex = 0; path = PrivilegedHelper; sourceTree = BUILT_PRODUCTS_DIR; };
+		50C3CB593CD5510CB08EB342 /* HelperDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperDelegate.swift; sourceTree = "<group>"; };
+		673DED15C5D4409E20CFDD5D /* CullAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CullAppApp.swift; sourceTree = "<group>"; };
+		72977B870BFE4DDF8DF1AB20 /* CullApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CullApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		89ECB386020F39FAF9BC293B /* PrivilegedHelperClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivilegedHelperClient.swift; sourceTree = "<group>"; };
+		8B032C7FF5B7A62EA6131DC8 /* XPCProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPCProtocol.swift; sourceTree = "<group>"; };
+		CD20F6FBB62282445BC7F4EB /* PrivilegedHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PrivilegedHelper.entitlements; sourceTree = "<group>"; };
+		DA48D4164DBD123FC5F85F4C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		06E3BEA03F92B07C999CC2F2 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				09AA061F76EA84D357C93DCF /* ContentView.swift */,
+				673DED15C5D4409E20CFDD5D /* CullAppApp.swift */,
+				01FD0D140AFBDA287E65F7A0 /* FileScanner.swift */,
+				DA48D4164DBD123FC5F85F4C /* main.swift */,
+				89ECB386020F39FAF9BC293B /* PrivilegedHelperClient.swift */,
+			);
+			name = App;
+			path = Sources/App;
+			sourceTree = "<group>";
+		};
+		65145A776C9BB8E767721A04 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8B032C7FF5B7A62EA6131DC8 /* XPCProtocol.swift */,
+			);
+			name = Shared;
+			path = Sources/Shared;
+			sourceTree = "<group>";
+		};
+		6CBEF1C5530F0F359B4E9BA1 = {
+			isa = PBXGroup;
+			children = (
+				06E3BEA03F92B07C999CC2F2 /* App */,
+				EF112204BBBAC0D034C94C72 /* PrivilegedHelper */,
+				65145A776C9BB8E767721A04 /* Shared */,
+				86AA91EF78C76211D065E06D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		86AA91EF78C76211D065E06D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				72977B870BFE4DDF8DF1AB20 /* CullApp.app */,
+				418438671750F06AB6C710D1 /* PrivilegedHelper */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF112204BBBAC0D034C94C72 /* PrivilegedHelper */ = {
+			isa = PBXGroup;
+			children = (
+				50C3CB593CD5510CB08EB342 /* HelperDelegate.swift */,
+				079CD8D468AB96993F57F417 /* Info.plist */,
+				39C3E9FEA124AFBC959DDAF4 /* main.swift */,
+				CD20F6FBB62282445BC7F4EB /* PrivilegedHelper.entitlements */,
+			);
+			name = PrivilegedHelper;
+			path = Sources/PrivilegedHelper;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6DC6453F60861ACF82755067 /* CullApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12ECA8DE6B0DBE8BDF7C84F2 /* Build configuration list for PBXNativeTarget "CullApp" */;
+			buildPhases = (
+				30E1B45D9A46DF2013FB27EE /* Sources */,
+				78408A9EB7E3FB68C2C1D0E4 /* Copy PrivilegedHelper into App Bundle */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2D87CB654A4FC88AFC8B7113 /* PBXTargetDependency */,
+			);
+			name = CullApp;
+			packageProductDependencies = (
+			);
+			productName = CullApp;
+			productReference = 72977B870BFE4DDF8DF1AB20 /* CullApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9458518FE2710BD12A53ED0E /* PrivilegedHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CA446311ABDF0A7AE180C96 /* Build configuration list for PBXNativeTarget "PrivilegedHelper" */;
+			buildPhases = (
+				858D60C1BAD553D06288269D /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PrivilegedHelper;
+			packageProductDependencies = (
+			);
+			productName = PrivilegedHelper;
+			productReference = 418438671750F06AB6C710D1 /* PrivilegedHelper */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		70F9743574C6FDA8A205ADB0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					6DC6453F60861ACF82755067 = {
+						ProvisioningStyle = Automatic;
+					};
+					9458518FE2710BD12A53ED0E = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 008FCBA840E95629537391C8 /* Build configuration list for PBXProject "CullApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 6CBEF1C5530F0F359B4E9BA1;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 86AA91EF78C76211D065E06D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6DC6453F60861ACF82755067 /* CullApp */,
+				9458518FE2710BD12A53ED0E /* PrivilegedHelper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		78408A9EB7E3FB68C2C1D0E4 /* Copy PrivilegedHelper into App Bundle */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy PrivilegedHelper into App Bundle";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "HELPER_BINARY=\"${BUILT_PRODUCTS_DIR}/com.cullapp.CullApp.PrivilegedHelper\"\nDESTINATION=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Contents/Library/LaunchServices\"\nmkdir -p \"${DESTINATION}\"\nif [ -f \"${HELPER_BINARY}\" ]; then\n  cp -f \"${HELPER_BINARY}\" \"${DESTINATION}/\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		30E1B45D9A46DF2013FB27EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92940F47CD690A18942299B5 /* ContentView.swift in Sources */,
+				BD1E8B5EB889912DB0E70CD8 /* CullAppApp.swift in Sources */,
+				DE3BCB5FF4DF1D8CFAC2F81F /* FileScanner.swift in Sources */,
+				D6DBAE7A767655B6A007ACDD /* PrivilegedHelperClient.swift in Sources */,
+				0F710FD55F0F8441A09C0D73 /* XPCProtocol.swift in Sources */,
+				051F72E1C53A9467E4EBB0BA /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		858D60C1BAD553D06288269D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE2A4085EBD298B5B4CF67CF /* HelperDelegate.swift in Sources */,
+				3D64746581C63936CD4B762D /* XPCProtocol.swift in Sources */,
+				637AF3C896F2C094CE303ECB /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2D87CB654A4FC88AFC8B7113 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9458518FE2710BD12A53ED0E /* PrivilegedHelper */;
+			targetProxy = 5AD35DA5AE712957B83D7922 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0D26BA8AB124BB2B0BFA5811 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Resources/CullApp.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = YES;
+				INFOPLIST_FILE = "Resources/CullApp-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cullapp.CullApp;
+				PRODUCT_NAME = CullApp;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5DCAF1B7130C46BB14FEC188 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		6D1293F325A9FAE3706059CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		993BAD540CD08FF296DB05E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Sources/PrivilegedHelper/PrivilegedHelper.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Sources/PrivilegedHelper/Info.plist;
+				INSTALL_PATH = /Library/PrivilegedHelperTools;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cullapp.CullApp.PrivilegedHelper;
+				PRODUCT_NAME = com.cullapp.CullApp.PrivilegedHelper;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		9B4BC2E114D982918BAE8796 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Resources/CullApp.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = YES;
+				INFOPLIST_FILE = "Resources/CullApp-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cullapp.CullApp;
+				PRODUCT_NAME = CullApp;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A5EA3844FF4062B3AED3F1C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Sources/PrivilegedHelper/PrivilegedHelper.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Sources/PrivilegedHelper/Info.plist;
+				INSTALL_PATH = /Library/PrivilegedHelperTools;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cullapp.CullApp.PrivilegedHelper;
+				PRODUCT_NAME = com.cullapp.CullApp.PrivilegedHelper;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		008FCBA840E95629537391C8 /* Build configuration list for PBXProject "CullApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D1293F325A9FAE3706059CC /* Debug */,
+				5DCAF1B7130C46BB14FEC188 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		12ECA8DE6B0DBE8BDF7C84F2 /* Build configuration list for PBXNativeTarget "CullApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D26BA8AB124BB2B0BFA5811 /* Debug */,
+				9B4BC2E114D982918BAE8796 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6CA446311ABDF0A7AE180C96 /* Build configuration list for PBXNativeTarget "PrivilegedHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5EA3844FF4062B3AED3F1C6 /* Debug */,
+				993BAD540CD08FF296DB05E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 70F9743574C6FDA8A205ADB0 /* Project object */;
+}
