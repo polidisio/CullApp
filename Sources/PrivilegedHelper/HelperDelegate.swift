@@ -1,10 +1,27 @@
 import Foundation
+import Security
+
+private let callerRequirement = "anchor apple generic and identifier \"com.cullapp.CullApp\""
+
+private func isCallerAuthorized(_ connection: NSXPCConnection) -> Bool {
+    var code: SecCode?
+    let attributes = [kSecGuestAttributePid: connection.processIdentifier] as CFDictionary
+    guard SecCodeCopyGuestWithAttributes(nil, attributes, [], &code) == errSecSuccess,
+          let code else { return false }
+
+    var requirement: SecRequirement?
+    guard SecRequirementCreateWithString(callerRequirement as CFString, [], &requirement) == errSecSuccess,
+          let requirement else { return false }
+
+    return SecCodeCheckValidity(code, [], requirement) == errSecSuccess
+}
 
 class HelperDelegate: NSObject, NSXPCListenerDelegate {
     func listener(_ listener: NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool {
-        // Verify the calling app's code signature
-        // In production, verify code signature matches expected value
-        let callingApp = newConnection.exportedInterface
+        guard isCallerAuthorized(newConnection) else {
+            newConnection.invalidate()
+            return false
+        }
 
         newConnection.exportedInterface = NSXPCInterface(with: PrivilegedHelperProtocol.self)
         newConnection.exportedObject = HelperImpl()

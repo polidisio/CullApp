@@ -13,6 +13,7 @@
 		637AF3C896F2C094CE303ECB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C3E9FEA124AFBC959DDAF4 /* main.swift */; };
 		92940F47CD690A18942299B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AA061F76EA84D357C93DCF /* ContentView.swift */; };
 		AE2A4085EBD298B5B4CF67CF /* HelperDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C3CB593CD5510CB08EB342 /* HelperDelegate.swift */; };
+		BA30744A8824194B67B42F49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6953CD12C6A3EC85494C19DE /* Assets.xcassets */; };
 		BD1E8B5EB889912DB0E70CD8 /* CullAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673DED15C5D4409E20CFDD5D /* CullAppApp.swift */; };
 		D6DBAE7A767655B6A007ACDD /* PrivilegedHelperClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ECB386020F39FAF9BC293B /* PrivilegedHelperClient.swift */; };
 		DE3BCB5FF4DF1D8CFAC2F81F /* FileScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD0D140AFBDA287E65F7A0 /* FileScanner.swift */; };
@@ -36,6 +37,7 @@
 		418438671750F06AB6C710D1 /* PrivilegedHelper */ = {isa = PBXFileReference; includeInIndex = 0; path = PrivilegedHelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		50C3CB593CD5510CB08EB342 /* HelperDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperDelegate.swift; sourceTree = "<group>"; };
 		673DED15C5D4409E20CFDD5D /* CullAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CullAppApp.swift; sourceTree = "<group>"; };
+		6953CD12C6A3EC85494C19DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72977B870BFE4DDF8DF1AB20 /* CullApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CullApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89ECB386020F39FAF9BC293B /* PrivilegedHelperClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivilegedHelperClient.swift; sourceTree = "<group>"; };
 		8B032C7FF5B7A62EA6131DC8 /* XPCProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPCProtocol.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			children = (
 				06E3BEA03F92B07C999CC2F2 /* App */,
 				EF112204BBBAC0D034C94C72 /* PrivilegedHelper */,
+				A0CA02DA002D39685BF7E5E1 /* Resources */,
 				65145A776C9BB8E767721A04 /* Shared */,
 				86AA91EF78C76211D065E06D /* Products */,
 			);
@@ -83,6 +86,14 @@
 				418438671750F06AB6C710D1 /* PrivilegedHelper */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A0CA02DA002D39685BF7E5E1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6953CD12C6A3EC85494C19DE /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		EF112204BBBAC0D034C94C72 /* PrivilegedHelper */ = {
@@ -105,6 +116,7 @@
 			buildConfigurationList = 12ECA8DE6B0DBE8BDF7C84F2 /* Build configuration list for PBXNativeTarget "CullApp" */;
 			buildPhases = (
 				30E1B45D9A46DF2013FB27EE /* Sources */,
+				BDD2494FBE45881EA6D101A3 /* Resources */,
 				78408A9EB7E3FB68C2C1D0E4 /* Copy PrivilegedHelper into App Bundle */,
 			);
 			buildRules = (
@@ -172,6 +184,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BDD2494FBE45881EA6D101A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA30744A8824194B67B42F49 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		78408A9EB7E3FB68C2C1D0E4 /* Copy PrivilegedHelper into App Bundle */ = {
@@ -378,6 +401,8 @@
 				INFOPLIST_FILE = Sources/PrivilegedHelper/Info.plist;
 				INSTALL_PATH = /Library/PrivilegedHelperTools;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				OTHER_CODE_SIGN_FLAGS = "--identifier com.cullapp.CullApp.PrivilegedHelper";
+				OTHER_LDFLAGS = "-Wl,-sectcreate,__TEXT,__launchd_plist,$(SRCROOT)/Resources/launchd.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cullapp.CullApp.PrivilegedHelper;
 				PRODUCT_NAME = com.cullapp.CullApp.PrivilegedHelper;
 				SDKROOT = macosx;
@@ -410,6 +435,8 @@
 				INFOPLIST_FILE = Sources/PrivilegedHelper/Info.plist;
 				INSTALL_PATH = /Library/PrivilegedHelperTools;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				OTHER_CODE_SIGN_FLAGS = "--identifier com.cullapp.CullApp.PrivilegedHelper";
+				OTHER_LDFLAGS = "-Wl,-sectcreate,__TEXT,__launchd_plist,$(SRCROOT)/Resources/launchd.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cullapp.CullApp.PrivilegedHelper;
 				PRODUCT_NAME = com.cullapp.CullApp.PrivilegedHelper;
 				SDKROOT = macosx;

@@ -20,10 +20,10 @@ targets:
     sources:
       - path: Sources/App
       - path: Sources/Shared
+      - path: Resources/Assets.xcassets
     resources:
       - path: Resources/CullApp-Info.plist
         buildPhase: none
-      - path: Resources/Assets.xcassets
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.cullapp.CullApp
@@ -70,6 +70,8 @@ targets:
         SKIP_INSTALL: YES
         INSTALL_PATH: /Library/PrivilegedHelperTools
         LD_RUNPATH_SEARCH_PATHS: "@loader_path/../Frameworks"
+        OTHER_LDFLAGS: "-Wl,-sectcreate,__TEXT,__launchd_plist,$(SRCROOT)/Resources/launchd.plist"
+        OTHER_CODE_SIGN_FLAGS: "--identifier com.cullapp.CullApp.PrivilegedHelper"
 
 schemes:
   CullApp:

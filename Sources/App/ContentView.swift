@@ -53,15 +53,25 @@ struct ContentView: View {
 
                 if !droppedApps.isEmpty {
                     HStack {
-                        Button("Scan for Leftover Files") {
+                        Button {
                             scanApps()
+                        } label: {
+                            HStack {
+                                templateIcon("IconScan", size: 14)
+                                Text("Scan for Leftover Files")
+                            }
                         }
                         .disabled(isScanning || isDeleting)
 
-                        Button("Clear") {
+                        Button {
                             droppedApps.removeAll()
                             scanResults.removeAll()
                             statusMessage = "Drop applications here to uninstall"
+                        } label: {
+                            HStack {
+                                templateIcon("IconClear", size: 14)
+                                Text("Clear")
+                            }
                         }
                         .disabled(isScanning || isDeleting)
                     }
@@ -382,12 +392,9 @@ struct DropZoneView: View {
         .onDrop(of: [.fileURL], isTargeted: $isTargeted) { providers in
             guard !isScanning else { return false }
 
-            var didAccept = false
             for provider in providers {
-                provider.loadItem(forTypeIdentifier: UTType.fileURL.identifier, options: nil) { item, _ in
-                    guard let data = item as? Data,
-                          let url = URL(dataRepresentation: data, relativeTo: nil),
-                          url.pathExtension == "app" else { return }
+                _ = provider.loadObject(ofClass: URL.self) { url, _ in
+                    guard let url, url.pathExtension == "app" else { return }
 
                     let icon = NSWorkspace.shared.icon(forFile: url.path)
 
@@ -397,9 +404,8 @@ struct DropZoneView: View {
                         }
                     }
                 }
-                didAccept = true
             }
-            return didAccept
+            return !providers.isEmpty
         }
     }
 }
