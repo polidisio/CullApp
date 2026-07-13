@@ -23,6 +23,7 @@ targets:
     resources:
       - path: Resources/CullApp-Info.plist
         buildPhase: none
+      - path: Resources/Assets.xcassets
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.cullapp.CullApp

@@ -6,12 +6,19 @@ CullApp is a Mac App Store-compatible uninstaller that detects and removes appli
 
 ## Features
 
-- **Drag & Drop** — drop any `.app` bundle onto the window to analyze and uninstall
-- **Smart Detection** — finds all related files by bundle identifier (preferences, caches, logs, containers)
-- **Privileged Helper** — SMJobBless-powered helper removes root-owned files cleanly
-- **Trash, not Delete** — user-domain files go to Trash (reversible)
-- **Progress UI** — live scan progress with per-file status
-- **Native macOS** — SwiftUI, @Observable, Swift 5.9, no Electron
+- **Drag & Drop** — drop any `.app` bundle onto the window (with live hover highlighting) to analyze and uninstall; drop multiple apps at once, remove individual apps before scanning
+- **Smart Detection** — finds all related files by app name and bundle identifier (preferences, caches, logs, containers, saved state, launch agents/daemons)
+- **Delete Confirmation** — every removal requires an explicit confirmation showing item count and reclaimed disk space before anything moves to the Trash
+- **Privileged Helper** — SMJobBless-powered helper removes root-owned files cleanly, requested on-demand only when root-owned leftovers are found
+- **Trash, not Delete** — files go to Trash via `FileManager.trashItem`/the helper (reversible)
+- **Progress UI** — live scan/delete progress with per-file status and total size
+- **Native macOS** — SwiftUI, Swift 5.9, no Electron
+
+## Icons
+
+The UI icons (app package, scan, folder, file, trash, warning, success) are vector assets adapted from
+[Reicon](https://github.com/dqev/reicon) (MIT License), bundled as template SVGs in
+`Resources/Assets.xcassets` so they tint with the system accent color.
 
 ## Architecture
 
